@@ -1,0 +1,57 @@
+<div id="view-login" class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12 bkg-custom d-none d-sm-block hidden-xs">
+
+		</div>
+
+		<div class="col-lg-12  imgwhite hidden-sm hidden-md hidden-lg">
+		
+		</div>
+
+
+
+		<div class="col-sm-2 col-md-2  col-lg-2 col-lg-offset-1 hidden-xs">
+			<img class="map" src="assets/img/Mapa-01.png" alt="mapa">
+		</div>
+
+		<div class="col-xs-10 col-xs-offset-1 col-sm-6  col-sm-offset-3 col-md-6 col-md-offset-2 col-lg-6 col-lg-offset-3">
+			<div class="row">
+				<div class="col-sm-7  col-md-6 col-lg-5 login  text-center">
+					<h1 class="title-login">
+						<strong>INICIO DE SESION</strong>
+					</h1>
+
+					<mat-form-field class="example-full-width">
+						<input matInput placeholder="Email">
+
+						<!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+							Please enter a valid email address
+						</mat-error>
+						<mat-error *ngIf="emailFormControl.hasError('required')">
+							Email is
+							<strong>required</strong>
+						</mat-error> -->
+					</mat-form-field>
+					<mat-form-field class="example-full-width">
+						<input matInput placeholder="Contraseña">
+						<!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+							Please enter a valid email address
+						</mat-error>
+						<mat-error *ngIf="emailFormControl.hasError('required')">
+							Email is
+							<strong>required</strong>
+						</mat-error> -->
+					</mat-form-field>
+					<br>
+					<br>
+					<button mat-raised-button (click)="login()" type="submit">INGRESAR</button>
+					<br>
+					<br>
+
+					<a class="forgot" href="">¿Olvidaste tu usuario y/o contraseña?</a>
+
+				</div>
+			</div>
+		</div>
+
+	</div>

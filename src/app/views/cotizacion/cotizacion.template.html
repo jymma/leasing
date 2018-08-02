@@ -1,0 +1,117 @@
+<cabecera-basico [titulo]="titulo" [links]="links"></cabecera-basico>
+<div id="view-prices" class="container-fluid">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button class="pull-right" mat-raised-button color="primary" matTooltip="Cotizador" (click)="cotizador()">
+                                    <i class="fa fa-plus"></i> Nuevo
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="table-responsive mat-elevation-z0">
+                            <mat-table #table class="table" [dataSource]="dataSource" matSort style="width:  100%" [class.isMobile]="isMobile">
+                                <ng-container matColumnDef="id">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Nro: </span>
+                                        {{row.id}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="name">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Nombre: </span>
+                                        {{row.name}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="cliente">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Cliente: </span>
+                                        {{row.cliente}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="documento">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Documento</mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Documento: </span>
+                                        {{row.documento}}
+                                    </mat-cell>
+                                </ng-container>
+
+
+                                <ng-container matColumnDef="correlativo">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Correlativo </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Correlativo: </span>
+                                        {{row.correlativo}}
+                                    </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="emision">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> F.Emisión </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Emisión: </span>
+                                        {{row.emision}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="vencimiento">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> F.Vencimiento</mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Vencimiento: </span>
+                                        {{row.vencimiento}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="monto">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Monto</mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Monto: </span>
+                                        {{row.monto}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="estado">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Estado: </span>
+                                        {{row.estado}}
+                                    </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="actionsColumn">
+                                    <mat-header-cell *matHeaderCellDef>
+                                        Acciones
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Acciones: </span>
+                                        <button mat-icon-button color="primary" matTooltip="Editar" class="icon"  (click)="cotizador()">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                        <button mat-icon-button color="primary" matTooltip="Eliminar" class="icon" (click)="eliminar()">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        <button mat-icon-button color="primary" matTooltip="Ver" class="icon"  (click)="cotizador()">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </mat-cell>
+                                </ng-container>
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;">
+                                </mat-row>
+                            </mat-table>
+                        </div>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

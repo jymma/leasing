@@ -1,0 +1,93 @@
+<div class="modal fade" id="formulario-sucursales" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form #formUsuarioComercial="ngForm" (ngSubmit)="guardar()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Crear Sucursal</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-12 ">
+                                <mat-form-field>
+                                    <input matInput placeholder="Nombre" autocomplete="off">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-12 ">
+                                <mat-form-field>
+                                    <input matInput placeholder="Razón Social" autocomplete="off">
+                                </mat-form-field>
+                            </div>
+    
+                            <div class="col-md-12 ">
+                                <mat-form-field>
+                                    <input matInput placeholder="Dirección" autocomplete="off">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-12 ">
+                                <mat-form-field>
+                                    <mat-select placeholder="Departamento">
+                                        <mat-option [value]="">
+    
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-12 ">
+                                <mat-form-field>
+                                    <mat-select placeholder="Distrito">
+                                        <mat-option [value]="">
+    
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-12 ">
+                                <mat-form-field>
+                                    <mat-select placeholder="Provincia">
+                                        <mat-option [value]="">
+    
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+    
+                            <div class="col-md-12 ">
+                                <mat-form-field>
+                                    <input matInput placeholder="Teléfono fijo" autocomplete="off">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-12 ">
+                                <mat-form-field>
+                                    <input matInput placeholder="Teléfono celular" autocomplete="off">
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                        <div class="col-md-8">
+                            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                            </agm-map>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button class="margin-right5" type="button" mat-raised-button data-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" mat-raised-button color="primary">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

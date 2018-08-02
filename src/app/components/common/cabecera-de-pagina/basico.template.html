@@ -1,0 +1,15 @@
+<div id="cabecera-de-pagina">
+    <div class="row wrapper border-bottom white-bg page-heading ng-scope">
+        <div class="col-lg-12">
+            <h2>{{titulo}}</h2>
+            <ol class="breadcrumb">
+                <ng-container *ngFor="let link of links;let index = index;">
+                    <li [ngClass]="{active: links.length == (index + 1) }">
+                        <a *ngIf="links.length != (index + 1)" [routerLink]="[link.link]">{{link.titulo}}</a>
+                        <strong *ngIf="links.length == (index + 1)">{{link.titulo}}</strong>
+                    </li>
+                </ng-container>
+            </ol>
+        </div>
+    </div>
+</div>

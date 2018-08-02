@@ -1,0 +1,62 @@
+<div class="modal fade" id="formulario-bienes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form  #formUsuarioComercial="ngForm" [formGroup]="miForm" (ngSubmit)="guardar()" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Crear Bien</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+
+
+                    <div class="col-md-4 ">
+                        <mat-form-field class="example-full-width">
+                            <input type="text" placeholder="Tipo de Bien" aria-label="Tipo de Bien" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                    {{option.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+
+
+
+
+
+
+
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <input matInput placeholder="Cantidad" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <input matInput placeholder="Valor del Bien Bruto" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button class="margin-right5" type="button" mat-raised-button data-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" mat-raised-button color="primary">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

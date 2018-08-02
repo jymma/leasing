@@ -1,0 +1,38 @@
+.margin-right{
+    margin-right: 0 !important;
+  }
+.margin-right5{
+    margin-right: 5px !important;
+}
+.logo{
+  width: 100%;
+  margin-top: -3%;
+
+}
+
+.leas1{
+  margin-left: 18%;
+}
+
+.leas-log{
+  height: 9vh;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+.pdf{
+  height: 25px;
+}
+.icons-ad{
+  padding-right:0px!important;
+}
+
+     
+  @media(max-width: 767px) {
+
+     .navbar-static-side{
+      margin-top: 60px;
+
+    } 
+      
+  }

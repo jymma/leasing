@@ -1,0 +1,593 @@
+<cabecera-basico [titulo]="titulo" [links]="links"></cabecera-basico>
+<div id="cotizador">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <form #formUsuarioComercial="ngForm" [formGroup]="miForm" (ngSubmit)="guardar()">
+                            <div class="modal-body">
+
+                                <div class="tabs-container">
+                                    <div class="pull-right">
+                                        <button type="submit" mat-raised-button color="primary">
+                                            <i class="fa fa-save"></i>
+                                            Guardar
+                                        </button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div>
+                                        <p class="text-right">Tipo de Cambio: $ 3.245</p>
+                                    </div>
+
+
+
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="active">
+                                            <a class="nav-link  " data-toggle="tab" href="#tab-1">Crear Cotización</a>
+                                        </li>
+                                        <li>
+                                            <a class="nav-link" data-toggle="tab" href="#tab-2">Bienes</a>
+                                        </li>
+                                        <li>
+                                            <a class="nav-link" data-toggle="tab" href="#tab-3">Operación</a>
+                                        </li>
+                                        <li>
+                                            <a class="nav-link" data-toggle="tab" href="#tab-4">Gastos</a>
+                                        </li>
+                                        <li>
+                                            <a class="nav-link" data-toggle="tab" href="#tab-5">Financiamiento</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" id="tab-1" class="tab-pane active ">
+                                            <div class="panel-body">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-md-4 ">
+                                                            <mat-form-field class="example-full-width">
+                                                                <input type="text" placeholder="Cliente" aria-label="Cliente" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                                                        {{option.name}}
+                                                                    </mat-option>
+                                                                </mat-autocomplete>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-md-4 ">
+                                                            <mat-form-field>
+                                                                <input matInput placeholder="Contacto" autocomplete="off">
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-md-4 ">
+                                                            <mat-form-field>
+                                                                <input matInput placeholder="Email" autocomplete="off">
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-md-4 ">
+                                                            <mat-form-field>
+                                                                <input matInput [matDatepicker]="picker" placeholder="Fecha de Vigencia" autocomplete="off">
+                                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                                <mat-datepicker #picker></mat-datepicker>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-md-4 ">
+                                                            <mat-form-field class="example-full-width">
+                                                                <input type="text" placeholder="Producto" aria-label="Producto" matInput [formControl]="myControl2" [matAutocomplete]="auto">
+                                                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn2">
+                                                                    <mat-option *ngFor="let option of filteredOptions2 | async" [value]="option.name2">
+                                                                        {{option.name2}}
+                                                                    </mat-option>
+                                                                </mat-autocomplete>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-md-4 ">
+                                                            <mat-form-field class="example-full-width">
+                                                                <input type="text" placeholder="Moneda" aria-label="Moneda" matInput [formControl]="myControl3" [matAutocomplete]="auto">
+                                                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn3">
+                                                                    <mat-option *ngFor="let option of filteredOptions3 | async" [value]="option.name3">
+                                                                        {{option.name3}}
+                                                                    </mat-option>
+                                                                </mat-autocomplete>
+                                                            </mat-form-field>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div role="tabpanel" id="tab-2" class="tab-pane">
+                                            <div class="panel-body">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <tabla></tabla>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div role="tabpanel" id="tab-3" class="tab-pane">
+                                            <div class="panel-body">
+                                                <div class="row">
+
+                                                    <div class="col-md-12">
+                                                        <div class="col-md-4 ">
+                                                            <fieldset>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Valor del bien Bruto::</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$120,000.00" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Porcentaje:
+                                                                    </label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="10 %" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Inicial:</label>
+
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$12000" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Valor del Bien Neto:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$120,000.00" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Cuota de Ingreso:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$10,169.49" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-4 ">
+                                                            <fieldset>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Costo Financiero:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="17%" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Plazo de la Operación:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="48" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Mes de Gracia:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="1" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Períodos por Año:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="12" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-3 col-md-offset-1">
+                                                            <div class="form-group row text-navy">
+                                                                <label class="col-md-2 col-form-label">Saldo:</label>
+                                                                <h4 class="col-md-2">$109,830.51</h4>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+                                        <div role="tabpanel" id="tab-4" class="tab-pane">
+                                            <div class="panel-body">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="ibox-content">
+
+
+                                                            <div class="panel-group payments-method" id="accordion">
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading">
+
+                                                                        <h5 class="panel-title">
+                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Gastos por Seguro</a>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <div id="collapseOne" class="panel-collapse collapse  in">
+                                                                        <div class="panel-body">
+
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="col-md-3 ">
+                                                                                        <mat-form-field>
+                                                                                            <mat-select placeholder="Tipo de Seguro">
+                                                                                                <mat-option [value]="">
+
+                                                                                                </mat-option>
+                                                                                            </mat-select>
+                                                                                        </mat-form-field>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-5 ">
+                                                                                        <fieldset>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4 col-form-label">Tasa de Seguro:</label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <mat-form-field>
+                                                                                                        <input matInput placeholder="18.000000000000000%" autocomplete="off">
+                                                                                                    </mat-form-field>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4 col-form-label">Impuesto de Emisión de Seguro:
+                                                                                                </label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <mat-form-field>
+                                                                                                        <input matInput placeholder="3.00%" autocomplete="off">
+                                                                                                    </mat-form-field>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </fieldset>
+                                                                                    </div>
+                                                                                    <div class="col-md-3 col-md-offset-1">
+                                                                                        <div class="form-group row">
+                                                                                            <label class="col-md-2 col-form-label">Total:</label>
+                                                                                            <h4 class="col-md-2">$9,214.38</h4>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+
+
+
+                                                                            </div>
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading">
+
+                                                                        <h5 class="panel-title">
+                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Gastos Legales</a>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                                                        <div class="panel-body">
+
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="col-md-4 ">
+                                                                                        <fieldset>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4 col-form-label">Comisión del Vendedor:</label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <mat-form-field>
+                                                                                                        <input matInput placeholder="$500.00" autocomplete="off">
+                                                                                                    </mat-form-field>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4 col-form-label">Comisión por Revisión de
+                                                                                                    Poliza:
+                                                                                                </label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <mat-form-field>
+                                                                                                        <input matInput placeholder="$0.00" autocomplete="off">
+                                                                                                    </mat-form-field>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4 col-form-label">Comisión por Tasación:</label>
+
+                                                                                                <div class="col-md-8">
+                                                                                                    <mat-form-field>
+                                                                                                        <input matInput placeholder="$0.00" autocomplete="off">
+                                                                                                    </mat-form-field>
+                                                                                                </div>
+                                                                                            </div>
+
+
+                                                                                        </fieldset>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 ">
+                                                                                        <fieldset>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4 col-form-label">Servicio de GPS:</label>
+
+                                                                                                <div class="col-md-8">
+                                                                                                    <div class="col-md-4">
+                                                                                                        <mat-form-field>
+                                                                                                            <mat-select placeholder="Cantidad">
+                                                                                                                <mat-option [value]="">
+
+                                                                                                                </mat-option>
+                                                                                                            </mat-select>
+                                                                                                        </mat-form-field>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-8">
+                                                                                                        <mat-form-field>
+                                                                                                            <input matInput placeholder="$0.00" autocomplete="off">
+                                                                                                        </mat-form-field>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4 col-form-label">Gastos del Procurador:</label>
+
+                                                                                                <div class="col-md-8">
+                                                                                                    <div class="col-md-4">
+                                                                                                        <mat-form-field>
+                                                                                                            <mat-select placeholder="Provincia">
+                                                                                                                <mat-option [value]="">
+
+                                                                                                                </mat-option>
+                                                                                                            </mat-select>
+                                                                                                        </mat-form-field>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-8">
+                                                                                                        <mat-form-field>
+                                                                                                            <input matInput placeholder="$0.00" autocomplete="off">
+                                                                                                        </mat-form-field>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                            <div class="form-group row">
+                                                                                                <label class="col-md-4 col-form-label">Otros Gastos:</label>
+                                                                                                <div class="col-md-8">
+                                                                                                    <mat-form-field>
+                                                                                                        <input matInput placeholder="$0.00" autocomplete="off">
+                                                                                                    </mat-form-field>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </fieldset>
+                                                                                    </div>
+                                                                                    <div class="col-md-3 col-md-offset-1">
+                                                                                        <div class="form-group row">
+                                                                                            <label class="col-md-2 col-form-label">Total:</label>
+                                                                                            <h4 class="col-md-2">$750.00</h4>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading">
+
+                                                                        <h5 class="panel-title">
+                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Gastos Notariales y Registrales</a>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <div id="collapseThree" class="panel-collapse collapse">
+                                                                        <div class="panel-body">
+
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 col-md-offset-9">
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-md-2 col-form-label">Total:</label>
+                                                                                        <h4 class="col-md-2">$390.31</h4>
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading">
+
+                                                                        <h5 class="panel-title">
+                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Gastos Administrativos</a>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <div id="collapseFour" class="panel-collapse collapse">
+                                                                        <div class="panel-body">
+
+                                                                            <div class="row">
+
+                                                                                <div class="col-md-3 col-md-offset-9">
+                                                                                    <div class="form-group row">
+                                                                                        <label class="col-md-2 col-form-label">Total:</label>
+                                                                                        <h4 class="col-md-2">$0.00</h4>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+
+                                                                <div class="col-md-3 col-md-offset-9">
+                                                                    <div class="form-group row  text-navy">
+                                                                        <label class="col-md-4 col-form-label">Total de Gastos:</label>
+                                                                        <h4 class="col-md-2 ">$10,354.69</h4>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <div role="tabpanel" id="tab-5" class="tab-pane">
+                                            <div class="panel-body">
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="col-md-4 ">
+                                                            <fieldset>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Valor a Financiar:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$120,185.20" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Interés de Mes por Gracia:
+                                                                    </label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$1702.62" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Valor Total a Financiar:</label>
+
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$121,887.82" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </fieldset>
+                                                        </div>
+
+
+                                                        <h5 class="text-navy">CUOTA</h5>
+                                                        <br>
+                                                        <br>
+                                                        <div class="col-md-4 ">
+
+                                                            <fieldset>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Valor Cuota:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$3,499.45" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Comisión:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$2.50" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </fieldset>
+                                                        </div>
+
+                                                        <div class="col-md-4 ">
+
+                                                            <fieldset>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">IGV:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="18.00%" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 col-form-label">Cuota Total:</label>
+                                                                    <div class="col-md-8">
+                                                                        <mat-form-field>
+                                                                            <input matInput placeholder="$4,132.30" autocomplete="off">
+                                                                        </mat-form-field>
+                                                                    </div>
+                                                                </div>
+
+                                                            </fieldset>
+                                                        </div>
+
+                                                        <div class="pull-right">
+                                                            <button class="margin-right5" type="button" mat-stroked-button color="primary">Cronograma</button>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

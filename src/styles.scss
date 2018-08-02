@@ -1,0 +1,25 @@
+
+@import '~@angular/material/theming';
+@import "assets/styles/material-theme.scss";
+@import "assets/styles/util.scss";
+
+@import "assets/styles/_custom-material.scss";
+
+
+// views
+
+@import "assets/styles/views/tabla.scss";
+@import "assets/styles/views/calendario.scss";
+@import "assets/styles/views/ubicacion.scss";
+@import "assets/styles/views/cotizacion.scss";
+@import "assets/styles/views/menu-izq.scss";
+@import "assets/styles/views/login.scss";
+
+// plugins
+@import '~fullcalendar/dist/fullcalendar.css';
+@import '~fullcalendar/dist/fullcalendar.min.css';
+
+@import "assets/styles/sweetalert2.scss";
+
+@import "assets/styles/styles.scss";
+

@@ -1,0 +1,95 @@
+<div class="modal fade" id="formulario-visitor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form #formDealersSucursal="ngForm" (ngSubmit)="guardar()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar Evento</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <input matInput placeholder="Tema" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4 ">
+                            <mat-form-field class="example-full-width">
+                                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Elegir día">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <input matInput placeholder="Hora de Inicio" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <input matInput placeholder="Hora Final" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <mat-select placeholder="Estado">
+                                    <mat-option [value]="">
+
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <mat-select placeholder="Actividad">
+                                    <mat-option [value]="">
+
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <mat-select placeholder="Prioridad">
+                                    <mat-option [value]="">
+
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4 ">
+                            <mat-form-field>
+                                <input matInput placeholder="Dirección" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <div class="form-group form-control-sm">
+                                <label>Descripción</label>
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button class="margin-right5" type="button" mat-raised-button data-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" mat-raised-button color="primary">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

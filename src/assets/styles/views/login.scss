@@ -1,0 +1,193 @@
+#view-login{
+     @include custom-form-field(#ffffff);
+
+  .bkg-custom {
+    background-image: url("assets/img/Fondo-01.png");
+    background-position: 20% 91%;
+    height: 730px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    color: #fff;
+    min-height: 100px;
+    position: absolute;
+    margin-top: 3%;
+    opacity:0.8;
+  }
+  .imgwhite{
+    background-image: url(assets/img/conduce.jpg);
+    background-position: 20% 91%;
+    height: 800px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    color: #fff;
+    min-height: 100px;
+    position:absolute;
+    opacity:0.8;
+  }
+  
+  .map{
+    height: 900px;
+    min-height: 500px;
+   }
+  
+  .form-signin {
+    padding: 1rem 0rem;
+  }
+  
+  /*Login*/
+   .login{
+    background-color:#c62828;
+    height: auto;
+    margin-top: 18%;
+    opacity: 0.8;
+    max-width: 300px;
+  }
+  
+  .title-login{
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 9%;
+    margin-top: 18%;
+  }
+  
+  .example-form {
+    min-width: 100px;
+    max-width: 400px;
+    width: 80%;
+  }
+  
+  .example-full-width {
+    width: 80%;
+  }
+  
+  .example-button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .example-button-row button,
+  .example-button-row a {
+    margin-right: 8px;
+  }
+  
+  .forgot{
+    color: #fff;
+    font-size: 1.1rem;
+  }
+      
+  @media(min-width: 0) and (max-width: 767px) {
+
+    .login{
+      margin-top: 72%;
+      height: auto;
+      float: right;
+      position: absolute;
+    } 
+    .title-login{
+      font-size: 1.9rem;
+    }
+      
+  }
+
+
+  
+ @media(min-width: 768px) and (max-width: 1024px) { 
+  .map{
+      height: 580px;
+      min-height: 300px;
+      margin-top: 60px;
+    }
+    .bkg-custom {
+      height: 500px;
+      margin-top: 12%;
+    }
+  
+    .login{
+      margin-top:45%;
+      height: auto;
+      float: right;
+    }
+    .title-login{
+      font-size: 1.9rem;
+    }
+        
+  }
+
+  @media(min-width: 1025px) and (max-width:1427px){
+
+    .map{
+      height:620px;
+      min-height: 400px;
+      margin-top: 30px;
+      }
+      .bkg-custom {
+        height: 460px;
+        margin-top: 9%;
+      }
+      
+    .login{
+      margin-top: 23%;
+      height: auto;
+    }
+    .title-login{
+      font-size: 1.9rem;
+      margin-top: 18%;
+     }
+  }
+
+
+
+  @media(min-width: 1025px) and (max-width:1199px){
+
+    .map{
+      height: 620px;
+      min-height: 300px;
+      margin-top: 71px;
+      }
+      .bkg-custom {
+        height: 500px;
+        margin-top: 12%;
+      }
+    
+      .login{
+        margin-top:45%;
+        height: auto;
+        float: right;
+      }
+      .title-login{
+        font-size: 1.9rem;
+       }
+  }
+  
+  @media(min-width: 1428px) and (max-width:1800px){
+
+    .map{
+      height:620px;
+      min-height: 400px;
+      margin-top: 30px;
+      }
+      .bkg-custom {
+        height: 460px;
+        margin-top: 9%;
+      }
+      
+    .login{
+      margin-top: 23%;
+      height: auto;
+    }
+    .title-login{
+      font-size: 1.9rem;
+      margin-top: 18%;
+     }
+  }
+
+}
+
+
+
+
+
+

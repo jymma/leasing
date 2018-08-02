@@ -1,0 +1,96 @@
+<cabecera-basico [titulo]="titulo" [links]="links"></cabecera-basico>
+<div id="usuarios">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content" [ngClass]="{'sk-loading':spinner}">
+                        <spinner-basico [show]="spinner"></spinner-basico>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button class="pull-right" mat-raised-button color="primary" data-toggle="modal" data-target="#formulario-usuario-comercial">
+                                    <i class="fa fa-plus"></i> Nuevo
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="table-responsive mat-elevation-z0">
+                            <mat-table #table class="table" [dataSource]="dataSource" matSort style="width:  100%" [class.isMobile]="isMobile">
+                                <ng-container matColumnDef="id">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Nro: </span>
+                                        {{row.id}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="name">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Nombre: </span>
+                                        {{row.name}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="progress">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Apellidos: </span>
+                                        {{row.progress}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="cargo">
+                                    <mat-header-cell  *matHeaderCellDef mat-sort-header> Cargo </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Cargo: </span>
+                                        {{row.cargo}}
+                                    </mat-cell>
+                                </ng-container>
+
+
+                                <ng-container matColumnDef="color">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Celular </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Celular: </span>
+                                        {{row.color}}
+                                    </mat-cell>
+                                </ng-container>
+
+
+                                <ng-container matColumnDef="oficina">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Oficina</mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Oficina: </span>
+                                        {{row.oficina}}
+                                    </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="actionsColumn">
+                                    <mat-header-cell  *matHeaderCellDef>
+                                        Acciones
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <span class="mobile-label">Acciones: </span>
+                                        <button mat-icon-button color="primary" matTooltip="Editar" class="icon" data-toggle="modal" data-target="#formulario-usuario-comercial">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                        <button mat-icon-button color="primary" matTooltip="Eliminar" class="icon" (click)="eliminar()">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        <button mat-icon-button color="primary" matTooltip="Ver" class="icon" data-toggle="modal" data-target="#formulario-usuario-comercial">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </mat-cell>
+                                </ng-container>
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;">
+                                </mat-row>
+                            </mat-table>
+                        </div>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<formulario-usuario-comercial></formulario-usuario-comercial>

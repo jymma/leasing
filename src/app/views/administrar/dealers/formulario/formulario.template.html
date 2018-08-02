@@ -1,0 +1,187 @@
+<div class="modal fade" id="formulario-dealers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form #formDealersSucursal="ngForm" (ngSubmit)="guardar()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel"> Crear Dealers</h4>
+                </div>
+
+
+                <div class="modal-body">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a class="nav-link" data-toggle="tab" href="#tab-1"> Dealer</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" data-toggle="tab" href="#tab-2"> Contacto</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="panel-body">
+
+                                    <div class="row">
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="RUC" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Nombres" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Razón Social" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+
+
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <mat-select placeholder="Producto">
+                                                    <mat-option [value]="">
+
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <mat-select placeholder="Marca">
+                                                    <mat-option [value]="">
+
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Dirección" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <mat-select placeholder="Departamento">
+                                                    <mat-option [value]="">
+
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <mat-select placeholder="Distrito">
+                                                    <mat-option [value]="">
+
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <mat-select placeholder="Provincia">
+                                                    <mat-option [value]="">
+
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Teléfono fijo" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Teléfono celular" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-2" class="tab-pane">
+                                <div class="panel-body">
+
+                                    <div class="row">
+                                       
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Nombres" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Apellidos" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <mat-select placeholder="Cargo">
+                                                    <mat-option [value]="">
+
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" autocomplete="off">
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Teléfono fijo" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Teléfono celular 1" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Teléfono celular 2" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <mat-form-field class="example-full-width descripcion">
+                                                <input matInput placeholder="Email">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button class="margin-right5" type="button" mat-raised-button data-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" mat-raised-button color="primary">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
